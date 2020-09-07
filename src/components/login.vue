@@ -44,13 +44,17 @@ export default {
     },
     methods:{
         resetloginform(){
+            //重置表单
             //console.log(this)
             this.$refs.loginformref.resetFields();
         },
         login(){
+            //表单验证
             this.$refs.loginformref.validate(async valid=>{
                 //console.log(valid)
                 if(!valid) return;
+
+                //调用接口注册
                 const result=await this.$http.post('login',this.loginform);
                 //console.log(result);
                 if(result.data.meta.status!==200) {
@@ -59,7 +63,7 @@ export default {
                     this.$message.success("登录成功!")
                     window.sessionStorage.setItem("token",result.data.data.token)
                     this.$router.push('/home')
-                    console.log(result)
+                    //console.log(result)
                 }
                 
             })
