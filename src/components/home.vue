@@ -123,7 +123,7 @@ export default {
   }
 }
 .el-main {
-  background-color: #eaedf1;
+  background-color: #fff;
 }
 .togglebtn {
   background-color: #4a5064;
