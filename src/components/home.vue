@@ -2,7 +2,7 @@
   <el-container class="container">
     <!-- 头部 -->
     <el-header>
-      <span>电商后台管理系统</span>
+      <div @click="tohome" class="wenzi">电商后台管理系统</div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
 
@@ -77,6 +77,7 @@ export default {
       window.sessionStorage.clear();
       this.$router.push("/login");
     },
+    
     async getMenuList() {
       //获取侧边栏列表
       const { data: res } = await this.$http.get("menus");
@@ -95,11 +96,18 @@ export default {
       window.sessionStorage.setItem("activepath", activepath);
       this.activepath = activepath;
     },
+    tohome(){
+      this.$router.push('/welcome')
+      this.activepath=''
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
+.wenzi{
+  cursor: pointer;
+}
 .container {
   height: 100%;
 }
