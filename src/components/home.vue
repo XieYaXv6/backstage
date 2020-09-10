@@ -33,6 +33,7 @@
               :index="'/'+subitem.path"
               v-for="subitem in item.children"
               :key="subitem.id"
+              
               @click="savenavstate('/'+subitem.path)"
             >
               <template slot="title">
@@ -80,10 +81,10 @@ export default {
       //获取侧边栏列表
       const { data: res } = await this.$http.get("menus");
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
-
+      
       this.menulist = res.data;
-
-      //console.log(res);
+     
+      //console.log(this.menulist);
     },
     //侧边栏收缩
     toggle() {

@@ -184,7 +184,7 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error("获取商品分类失败！");
       }
-      console.log(res.data);
+      //console.log(res.data);
       this.catelist = res.data.result;
       this.total = res.data.total;
     },
